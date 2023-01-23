@@ -1,5 +1,7 @@
-let text : string;
+import express from 'express';
 
-text = '123564654';
+const app = express();
 
-console.log(text);
+app.listen(3002, () => {
+	console.log('Server stater at http://localhost:3002');
+});

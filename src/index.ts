@@ -1,7 +1,18 @@
 import express from 'express';
+import mongoose from 'mongoose';
 
-const app = express();
 
-app.listen(3002, () => {
-	console.log('Server stater at http://localhost:3002');
-});
+mongoose.set('strictQuery', true);
+mongoose.connect('mongodb://localhost:27017')
+	.then(() => {
+		const app = express();
+
+		const port = 3001;
+		app.listen(port, () => {
+			console.log(`Server stater at http://localhost:${port}`);
+		});
+
+		console.log('conectado ao mongo');
+	})
+	.catch(() => console.log('erro ao conectar'));
+

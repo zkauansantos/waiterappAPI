@@ -1,38 +1,19 @@
 import { model, Schema } from 'mongoose';
 
-export const Product = model('Product', new Schema({
+export const Category = model('Category', new Schema({
 	name: {
 		type: String,
 		required: true,
 	},
-	description: {
+	icon: {
 		type: String,
 		required: true,
-	},
-	imagePath: {
-		type: String,
-		required: true,
-	},
-	price: {
-		type: Number,
-		required: true,
-	},
-	ingredients: {
-		required: true,
-		type: [{
-			icon: {
-				type: String,
-				required: true,
-			},
-			name: {
-				type: String,
-				required: true,
-			},
-		}],
-	},
-	category: {
-		type: Schema.Types.ObjectId,
-		required: true,
-		ref: 'Category',
 	},
 }));
+
+const query = {
+	name: 'test',
+	icon: 'test',
+};
+
+Category.deleteOne(query);

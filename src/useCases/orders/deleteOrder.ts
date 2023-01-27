@@ -10,7 +10,7 @@ export async function deleteOrder(req: Request, res: Response) {
 		res.sendStatus(204);
 	}catch {
 		res.status(400).json({
-			error: 'Erro ao cadastrar pedido',
+			error: 'Erro ao deletar pedido',
 		});
 	}
 }
